@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
-import Home from './Home';
+import Private from './Private';
+import Login from './Login';
+import Test from './Test';
 
 class App extends Component {
   render() {
@@ -12,18 +14,18 @@ class App extends Component {
             <img src='../public/images/logo.svg' className="App-logo" alt="logo2" />
             <h1 className="App-title">Welcome to React</h1>
           </header>
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-          </p>
               <ul>
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/account">Account</Link></li>
-                <li><Link to="/user">User</Link></li>
-                <li><Link to="/admin">Admin</Link></li>
+                <li><Link to="/register">Register</Link></li>
+                <li><Link to="/login">Login</Link></li>
+                <li><Link to="/private">Private</Link></li>
+                <li><Link to="/test">Test</Link></li>
               </ul>
 
               <div className="content">
-                <Route path="/account" component={Home}/>
+                <Route path="/private" component={Private}/>
+                <Route path="/login" component={Login}/>
+                <Route path="/test/:id" component={Test}/>
               </div>
         </div>
       </Router>
