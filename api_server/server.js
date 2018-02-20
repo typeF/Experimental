@@ -10,9 +10,38 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 
-// const initOptions = {};
-// const pgp = require('pg-promise')(initOptions);
-// const db = pgp(connection);
+
+const initOptions = {};
+const pgp = require('pg-promise')(initOptions);
+// const cn = {
+//   host: 'localhost',
+//   port: 5432,
+//   database: 'experimental',
+//   user: 'anonymous',
+//   password: 'anonymous'
+// }
+const cn = {
+  host: process.env.PG_HOST,
+  port: process.env.PG_PORT,
+  database: process.env.PG_DATABASE,
+  user: process.env.PG_USER,
+  password: process.env.PG_PASSWORD
+}
+
+const db = pgp(cn);
+
+async function tester() {
+  const result = await db.any('SELECT * FROM USERS WHERE active = $1', [true]);
+  console.log(result);
+}
+
+tester();
+
+// try {
+//   const users = await db.any('SELECT * FROM USERS WHERE active = $1', [true]);
+// } catch (err) {
+//   console.log(err);
+// }
 
 const auth = require('./auth');
 const test = require('./test');
