@@ -10,6 +10,10 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 
+// const initOptions = {};
+// const pgp = require('pg-promise')(initOptions);
+// const db = pgp(connection);
+
 const auth = require('./auth');
 const test = require('./test');
 
@@ -35,7 +39,7 @@ app.post('/login', (req, res, next) => {
   (req, res, next);
 });
 
-app.use('/test', passport.authenticate('jwt', { session: false }),
+app.use('/secret', passport.authenticate('jwt', { session: false }),
   (req, res) => {
     res.send('you made it!')
 });

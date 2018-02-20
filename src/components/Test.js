@@ -6,6 +6,7 @@ class Test extends Component {
       <Fragment>
         <div>
           <span>User id is: {this.props.match.params.id}</span>
+          <button onClick={e => this.test()}>Check</button>
         </div>
       </Fragment>
     )

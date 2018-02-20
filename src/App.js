@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import './App.css';
-import Private from './Private';
-import Login from './Login';
-import Test from './Test';
+import Private from './components/authentication/Private';
+import Login from './components/authentication/Login';
+import Registration from './components/authentication/Registration';
+import Test from './components/Test';
 
 class App extends Component {
   render() {
@@ -11,7 +14,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <img src='../public/images/logo.svg' className="App-logo" alt="logo2" />
+            <img src='./images/logo.svg' className="App-logo" alt="logo2" />
             <h1 className="App-title">Welcome to React</h1>
           </header>
               <ul>
@@ -23,6 +26,7 @@ class App extends Component {
               </ul>
 
               <div className="content">
+                <Route path="/register" component={Registration}/>
                 <Route path="/private" component={Private}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/test/:id" component={Test}/>
@@ -33,4 +37,15 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
