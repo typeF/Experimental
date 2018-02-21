@@ -10,8 +10,10 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 
+
 const initOptions = {};
 const pgp = require('pg-promise')(initOptions);
+
 const cn = {
   host: process.env.PG_HOST,
   port: process.env.PG_PORT,
@@ -29,8 +31,15 @@ async function tester() {
 
 tester();
 
+// try {
+//   const users = await db.any('SELECT * FROM USERS WHERE active = $1', [true]);
+// } catch (err) {
+//   console.log(err);
+// }
+
 const auth = require('./auth');
 const test = require('./test');
+
 
 // const FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID;
 // const FACEBOOK_APP_SECRET = process.env.FACEBOOK_APP_SECRET;
