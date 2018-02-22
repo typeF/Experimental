@@ -1,10 +1,18 @@
 .App {
   text-align: center;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: 1fr 5fr 1fr;
+	grid-template-areas: 
+		"header header header"
+		"left-bar center right-bar";
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+	padding-top: 10px;
+	padding-left: 10px;
 }
 
 .App-header {
@@ -25,4 +33,14 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	grid-area: header;
+}
+
+.nav-links {
+	grid-area: center;
 }
