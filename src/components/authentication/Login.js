@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loginUser, secret } from '../../actions/actions';
 import { Field, reduxForm } from 'redux-form';
+import '../../styles/theme.css'
 
 class Login extends Component {
 
@@ -22,7 +23,7 @@ class Login extends Component {
             <Field name='password' component='input' type='password' placeholder='password'/>
             <button type="submit">Submit</button>
           </form>
-            <button onClick={e => this.props.secret() }>Secret</button>
+            <button className="button is-primary" onClick={e => this.props.secret() }>Secret</button>
         </div>
       </Fragment>
     )

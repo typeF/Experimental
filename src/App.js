@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import './App.css';
+import './styles/App.css'
 import Private from './components/authentication/Private';
 import Login from './components/authentication/Login';
 import Registration from './components/authentication/Registration';
@@ -13,10 +13,18 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
-            <img src='./images/logo.svg' className="App-logo" alt="logo2" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
+          <nav className="navbar is-warning">
+            <div className='navbar-brand'>
+              <img src='./images/logo.svg' className="App-logo" alt="logo2" />
+              <div className='navbar-burger'></div>
+            </div>
+            <div className='navbar-menu is-active'>
+              <div className='navbar-start'>
+                <a className='navbar-item' href="/">Home</a>
+              </div>
+            </div>
+          </nav>
+
               <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/register">Register</Link></li>
