@@ -7,8 +7,8 @@ export const loginUser = ({ email, password }, history) => {
   return async (dispatch, getState) => {
     try {
       const result = await axios.post('/login', { email, password });
-      localStorage.setItem('jwt', result.data.token);
-      sessionStorage.setItem('jwt', result.data.token);
+      localStorage.setItem('user', result.data.token);
+      sessionStorage.setItem('user', result.data.token);
       history.push('/private');
     } catch (err) {
       console.log(err);
