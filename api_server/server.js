@@ -69,7 +69,7 @@ app.use('/secret', passport.authenticate('jwt', { session: false }),
 
 app.get('/success', (req, res) => {
   res.send('Successfully logged in');
-});
+})
 
 app.get('/error', (req, res) => {
   res.send('Error logging in ');

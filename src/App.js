@@ -14,36 +14,36 @@ class App extends Component {
       <Router>
         <div className="App">
 
-					<div>
-						<nav className="header 1navbar is-warning">
-							<div className='1navbar-brand'>
-								<img src='./images/logo.svg' className="App-logo" alt="logo2" />
-								<div className='1navbar-burger'></div>
-							</div>
-							<div className='home-link 1navbar-menu is-active'>
-								<div className='1navbar-start'>
-									<a className='1navbar-item' href="/">Home</a>
-								</div>
-							</div>
-						</nav>
-					</div>
-
-						<div className="nav-links">
-              <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/register">Register</Link></li>
-                <li><Link to="/login">Login</Link></li>
-                <li><Link to="/private">Private</Link></li>
-                <li><Link to="/test">Test</Link></li>
-              </ul>
-						</div>
-
-              <div className="content">
-                <Route path="/register" component={Registration}/>
-                <Route path="/private" component={Private}/>
-                <Route path="/login" component={Login}/>
-                <Route path="/test/:id" component={Test}/>
+          <div>
+            <nav className="header 1navbar is-warning">
+              <div className='1navbar-brand'>
+                <img src='./images/logo.svg' className="App-logo" alt="logo2" />
+                <div className='1navbar-burger'></div>
               </div>
+              <div className='home-link 1navbar-menu is-active'>
+                <div className='1navbar-start'>
+                  <a className='1navbar-item' href="/">Home</a>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <div className="nav-links tabs is-right is-boxed is-fullwidth">
+            <ul>
+              <li> <span><Link to="/">Home</Link></span></li>
+              <li> <span><Link to="/register">Register</Link></span></li>
+              <li> <span><Link to="/login">Login</Link></span></li>
+              <li> <span><Link to="/private">Private</Link></span></li>
+              <li> <span><Link to="/test">Test</Link></span></li>
+            </ul>
+          </div>
+
+          <div className="content">
+            <Route path="/register" component={Registration}/>
+            <Route path="/private" component={Private}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/test/:id" component={Test}/>
+          </div>
         </div>
       </Router>
     );
@@ -61,4 +61,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-

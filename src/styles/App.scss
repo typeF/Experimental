@@ -1,10 +1,11 @@
 .App {
   text-align: center;
 	display: grid;
-	grid-gap: 20px;
-	grid-template-columns: 1fr 5fr 1fr;
+	grid-gap: 10px;
+	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-areas: 
 		"header header header"
+		"navlinks navlinks navlinks"
 		"left-bar center right-bar";
 }
 
@@ -39,8 +40,12 @@
 	display: flex;
 	align-items: center;
 	grid-area: header;
+	background: linear-gradient(#e66465, #9198e5);
+	width: 1000%;
 }
 
 .nav-links {
-	grid-area: center;
+	grid-area: navlinks;
+	display: grid;
+	grid-template-columns: repeat(5, minmax(50px, 1fr));
 }
